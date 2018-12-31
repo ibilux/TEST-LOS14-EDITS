@@ -18,6 +18,7 @@
  ****************************************************************************/
 #ifndef _UAPI__LINUX_BRIDGE_EFF_H
 #define _UAPI__LINUX_BRIDGE_EFF_H
+#include <linux/if.h>
 #include <linux/netfilter_bridge.h>
 #define EBT_TABLE_MAXNAMELEN 32
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
