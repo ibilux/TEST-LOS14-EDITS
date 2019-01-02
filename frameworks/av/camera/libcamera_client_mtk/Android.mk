@@ -68,7 +68,7 @@ ifeq ($(strip $(MTK_MMPROFILE_SUPPORT)),yes)
 endif
 endif
 
-LOCAL_MODULE := xlibcamera_client_mtk
+LOCAL_MODULE := xlibcamera_client_mtk2
 
 include $(BUILD_SHARED_LIBRARY)
 
