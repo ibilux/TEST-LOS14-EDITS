@@ -50,26 +50,48 @@ LOCAL_SRC_FILES += MtkCameraMMP.cpp
 LOCAL_SRC_FILES += MtkCameraProfile.cpp
 
 #-----------------------------------------------------------
-LOCAL_C_INCLUDES += $(TOP)/frameworks/av/include
+LOCAL_C_INCLUDES += $(TOP)/$(MTK_PATH_SOURCE)/frameworks/av/include
+#
 
-LOCAL_C_INCLUDES += \
-    system/media/camera/include \
+#-----------------------------------------------------------
+LOCAL_WHOLE_STATIC_LIBRARIES += 
+#
+LOCAL_STATIC_LIBRARIES += 
 
-LOCAL_C_INCLUDES += $(LOCAL_PATH)/include
+#-----------------------------------------------------------
+LOCAL_MODULE := libcamera_client_mtk
 
-ifneq ($(strip $(MTK_EMULATOR_SUPPORT)),yes)
-ifeq ($(strip $(MTK_MMPROFILE_SUPPORT)),yes)
+#-----------------------------------------------------------
+include $(BUILD_STATIC_LIBRARY)
 
-    #LOCAL_SHARED_LIBRARIES += libmmprofile
-    LOCAL_CFLAGS += -DMTK_CAMERAMMP_SUPPORT
+################################################################################
+#
+################################################################################
+include $(CLEAR_VARS)
 
-    LOCAL_C_INCLUDES += $(TOP)/bionic/libc/kernel/uapi/common
+#-----------------------------------------------------------
+LOCAL_WHOLE_STATIC_LIBRARIES += libcamera_client_mtk
+#
+LOCAL_STATIC_LIBRARIES += 
 
-endif
-endif
+#-----------------------------------------------------------
+LOCAL_SHARED_LIBRARIES += liblog
+LOCAL_SHARED_LIBRARIES += libcutils
+LOCAL_SHARED_LIBRARIES += libutils
+LOCAL_SHARED_LIBRARIES += libbinder
+LOCAL_SHARED_LIBRARIES += libcamera_client
+#
 
-LOCAL_MODULE := xlibcamera_client_mtk2
+#-----------------------------------------------------------
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE := libcamera_client_mtk
 
+#-----------------------------------------------------------
 include $(BUILD_SHARED_LIBRARY)
 
+################################################################################
+#
+################################################################################
+include $(CLEAR_VARS)
+include $(call all-makefiles-under,$(LOCAL_PATH))
 endif
