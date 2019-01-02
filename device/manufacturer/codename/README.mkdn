@@ -1,0 +1,9 @@
+# Mediatek Android Patches
+Nougat MTK Patches Needed To Be Applied in order to build 7.x for L861
+
+
+### To Apply :
+
+Go to working dir
+
+```sh ./device/manufacturer/codename/patches/install.sh```
