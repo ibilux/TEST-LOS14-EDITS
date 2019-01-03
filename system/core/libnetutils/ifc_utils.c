@@ -58,9 +58,7 @@
 #if defined(__ANDROID__)
 /* SIOCKILLADDR is an Android extension. */
 #define SIOCKILLADDR 0x8939
-#ifdef MTK_HARDWARE
 #define SIOCKILLSOCK 0x893a
-#endif
 #endif
 
 static int ifc_ctl_sock = -1;
